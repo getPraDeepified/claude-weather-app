@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -sL https://github.com/cli/cli/releases/download/v2.63.2/gh_2.63.2_macOS_arm64.zip -o /tmp/gh.zip)",
+      "Bash(unzip -o /tmp/gh.zip -d /tmp/gh)",
+      "Bash(/tmp/gh/gh_2.63.2_macOS_arm64/bin/gh --version)",
+      "Bash(/tmp/gh/gh_2.63.2_macOS_arm64/bin/gh auth:*)",
+      "Bash(GIT_SEQUENCE_EDITOR=\"sed -i '''' ''s/^pick/edit/g''\" git rebase --root)",
+      "Bash(export PATH=\"$HOME/bin:$PATH\")",
+      "Bash(gh repo:*)"
+    ]
+  }
+}
