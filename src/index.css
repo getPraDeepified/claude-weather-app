@@ -12,18 +12,50 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ========== iOS-style Weather Backgrounds ========== */
+
+.ios-sunny {
+  background: linear-gradient(180deg, #4a90d9 0%, #68b8e8 30%, #8dd0f0 55%, #f5d76e 85%, #f0c27a 100%);
+}
+
+.ios-cloudy {
+  background: linear-gradient(180deg, #5b7fa6 0%, #7a99b8 35%, #8faaba 55%, #a0b5c4 75%, #8a9dac 100%);
+}
+
+.ios-rainy {
+  background: linear-gradient(180deg, #2c3e57 0%, #3a5068 25%, #4a6578 50%, #5a7a8c 75%, #4a6575 100%);
+}
+
+.ios-snow {
+  background: linear-gradient(180deg, #5a7a9a 0%, #7a9ab8 30%, #8aacca 55%, #a0c0d8 75%, #8aacca 100%);
+}
+
+.ios-storm {
+  background: linear-gradient(180deg, #1a1e2e 0%, #2a2e3e 25%, #3a3e4e 45%, #2e3040 70%, #1e2030 100%);
+}
+
+.ios-fog {
+  background: linear-gradient(180deg, #5a6a7a 0%, #7a8a9a 30%, #8a9aaa 55%, #9aaaBA 75%, #8a9aaa 100%);
+}
+
+.ios-default {
+  background: linear-gradient(180deg, #2a6dd4 0%, #3d8ae0 30%, #54a0ea 55%, #6bb5f0 75%, #4a90d9 100%);
+}
+
+/* ========== Glass Cards ========== */
+
 .glass {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ========== Weather Animations ========== */
@@ -125,5 +157,48 @@ body {
   100% {
     transform: translateX(15%);
     opacity: 0.9;
+  }
+}
+
+/* ========== Accessibility ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== Scrollbar ========== */
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+/* ========== Backdrop filter fallback ========== */
+
+@supports not (backdrop-filter: blur(20px)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
   }
 }
